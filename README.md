@@ -58,12 +58,26 @@ Add CBTabBarController folder to your project
 2. Instantiate `CBTabBarController`
 3. Add some child controllers and don't forget to set them tabBar items with title and image
 
-### Configuration
+## Styling
 
-1. Set appropriate style for tab bar. Styles supported at the moment:
-1.1 Gooey with menu (requies menu ): ![Animation](https://raw.githubusercontent.com/Cuberto/cb-tabbar/master/Screenshots/gooey.gif)
-1.2 Flashy: ![Animation](https://raw.githubusercontent.com/Cuberto/cb-tabbar/master/Screenshots/flashy.gif)
-1.3 Fade: Same as gooey but without menu button( default)
+Set appropriate style for tab bar using `style` property of `CBTabbarController` instance.
+You can subclass `UITabBarItem` and conform to `CBExtendedTabItem` protocol to define custom title style and tint for tab buttons. 
+
+Styles supported at the moment:
+
+#### Gooey with menu:
+
+ ![Animation](https://raw.githubusercontent.com/Cuberto/cb-tabbar/master/Screenshots/gooey.gif)
+
+ Requies configured `CBTabMenu` instance as paramenter (see example). Any object conforming to `CBTabMenuItem` can be used as menu item
+
+#### Flashy: 
+
+![Animation](https://raw.githubusercontent.com/Cuberto/cb-tabbar/master/Screenshots/flashy.gif)
+
+#### Fade (default):
+
+Same as gooey but without menu button
 
 ## Author
 
