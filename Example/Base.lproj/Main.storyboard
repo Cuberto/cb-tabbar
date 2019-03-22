@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="H83-iA-ah5">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="iES-3p-PAz">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="H83-iA-ah5" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IN6-3J-kaE">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="AZ1-YF-zYU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cPs-wH-OfO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1309" y="-547"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="ExampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BOr-oW-RIu">
+                                <rect key="frame" x="15" y="266.5" width="345" height="134"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pI4-ce-s6u">
+                                        <rect key="frame" x="0.0" y="0.0" width="345" height="57"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="15" maxX="0.0" maxY="15"/>
+                                        <state key="normal" title="Flashy">
+                                            <color key="titleColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnFlashyPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="5fW-lk-Hcz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R9R-pK-Nxw">
+                                        <rect key="frame" x="0.0" y="77" width="345" height="57"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="15" maxX="0.0" maxY="15"/>
+                                        <state key="normal" title="Gooey">
+                                            <color key="titleColor" red="0.1176470588" green="0.1176470588" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnGooeyPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="87a-Ob-j9I"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="pI4-ce-s6u" firstAttribute="leading" secondItem="BOr-oW-RIu" secondAttribute="leading" id="4Le-eC-H4F"/>
+                                    <constraint firstItem="R9R-pK-Nxw" firstAttribute="leading" secondItem="BOr-oW-RIu" secondAttribute="leading" id="CPF-dd-atf"/>
+                                    <constraint firstAttribute="bottom" secondItem="R9R-pK-Nxw" secondAttribute="bottom" id="Mm2-Po-LNt"/>
+                                    <constraint firstAttribute="trailing" secondItem="pI4-ce-s6u" secondAttribute="trailing" id="PFK-7E-Fak"/>
+                                    <constraint firstItem="pI4-ce-s6u" firstAttribute="top" secondItem="BOr-oW-RIu" secondAttribute="top" id="bER-oX-7Fx"/>
+                                    <constraint firstItem="R9R-pK-Nxw" firstAttribute="top" secondItem="pI4-ce-s6u" secondAttribute="bottom" constant="20" id="sYM-Iv-OFo"/>
+                                    <constraint firstAttribute="trailing" secondItem="R9R-pK-Nxw" secondAttribute="trailing" id="vqu-m2-Gpo"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="BOr-oW-RIu" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="15" id="8DH-LZ-dIV"/>
+                            <constraint firstItem="BOr-oW-RIu" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="JJs-DM-c6J"/>
+                            <constraint firstAttribute="trailing" secondItem="BOr-oW-RIu" secondAttribute="trailing" constant="15" id="LZP-hg-BWd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="bbl-PW-iym"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="17" y="123"/>
+        </scene>
+    </scenes>
+</document>

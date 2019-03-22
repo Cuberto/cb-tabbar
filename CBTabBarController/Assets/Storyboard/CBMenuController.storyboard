@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="W8Y-Eq-WuD">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Menu Controller-->
+        <scene sceneID="K7B-o9-Yzn">
+            <objects>
+                <viewController id="W8Y-Eq-WuD" customClass="CBMenuController" customModule="CBTabBarController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cYo-ZL-Is7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fS4-gd-enG">
+                                <rect key="frame" x="0.0" y="518" width="375" height="230"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wUy-93-mRh">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="100" constant="45" id="q9C-qZ-emW"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="wUy-93-mRh" firstAttribute="top" secondItem="fS4-gd-enG" secondAttribute="top" id="IW9-N8-uJF"/>
+                                    <constraint firstAttribute="trailing" secondItem="wUy-93-mRh" secondAttribute="trailing" id="ZrF-34-a6m"/>
+                                    <constraint firstAttribute="bottom" secondItem="wUy-93-mRh" secondAttribute="bottom" id="g18-ck-Qpw"/>
+                                    <constraint firstItem="wUy-93-mRh" firstAttribute="height" secondItem="fS4-gd-enG" secondAttribute="height" priority="750" id="kpj-Mp-UJG"/>
+                                    <constraint firstItem="wUy-93-mRh" firstAttribute="leading" secondItem="fS4-gd-enG" secondAttribute="leading" id="m54-BP-Bcc"/>
+                                    <constraint firstItem="wUy-93-mRh" firstAttribute="width" secondItem="fS4-gd-enG" secondAttribute="width" id="uL9-qT-2BS"/>
+                                </constraints>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6A-nb-uqy">
+                                <rect key="frame" x="157.66666666666666" y="448" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="jaH-ja-ycr"/>
+                                    <constraint firstAttribute="width" constant="60" id="w95-hq-2Rq"/>
+                                </constraints>
+                                <state key="normal" image="btnClose.png"/>
+                                <connections>
+                                    <action selector="btnDismissPressed:" destination="W8Y-Eq-WuD" eventType="touchUpInside" id="qra-QW-ZuK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.30588235294117649" green="0.60784313725490191" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="r6A-nb-uqy" firstAttribute="centerX" secondItem="cYo-ZL-Is7" secondAttribute="centerX" id="7Ju-5j-jFf"/>
+                            <constraint firstItem="gDt-e3-f9M" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="r6A-nb-uqy" secondAttribute="bottom" constant="270" id="Iq2-Kr-iWz"/>
+                            <constraint firstItem="gDt-e3-f9M" firstAttribute="trailing" secondItem="fS4-gd-enG" secondAttribute="trailing" id="RcA-jp-d7X"/>
+                            <constraint firstItem="fS4-gd-enG" firstAttribute="leading" secondItem="gDt-e3-f9M" secondAttribute="leading" id="Z7u-bS-wxe"/>
+                            <constraint firstItem="gDt-e3-f9M" firstAttribute="bottom" secondItem="fS4-gd-enG" secondAttribute="bottom" constant="30" id="gta-zp-XVE"/>
+                            <constraint firstItem="fS4-gd-enG" firstAttribute="top" secondItem="r6A-nb-uqy" secondAttribute="bottom" priority="250" constant="10" id="wvA-cG-ZvL"/>
+                            <constraint firstItem="fS4-gd-enG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="gDt-e3-f9M" secondAttribute="top" constant="90" id="zaN-Gw-Xa2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gDt-e3-f9M"/>
+                    </view>
+                    <connections>
+                        <outlet property="dismissButton" destination="r6A-nb-uqy" id="SFg-d1-VwY"/>
+                        <outlet property="menuContainer" destination="fS4-gd-enG" id="NCg-eb-TPM"/>
+                        <outlet property="menuStack" destination="wUy-93-mRh" id="dOK-b0-buE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IGG-cI-yhz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="206" y="-387"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="btnClose.png" width="15" height="15"/>
+    </resources>
+</document>
