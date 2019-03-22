@@ -9,7 +9,7 @@
 
 ## Example
 
-To run the example project, clone the repo, and run `ExampleApp`  scheme from FlashyTabBar.xcodeproj
+To run the example project, clone the repo, and run `ExampleApp`  scheme from CBTabBar.xcodeproj
 
 ## Requirements
 
@@ -19,7 +19,7 @@ To run the example project, clone the repo, and run `ExampleApp`  scheme from Fl
 ## Installation
 
 ### CocoaPods
-To install Flashy TabBar add the following line to your Podfile:
+To install CBTabBarController add the following line to your Podfile:
 ```ruby
 pod 'CBTabBarController'
 ```
@@ -85,4 +85,5 @@ Cuberto Design, info@cuberto.com
 
 ## License
 
-CBFlashyTabBarController is available under the MIT license. See the LICENSE file for more info.
+CB
+TabBarController is available under the MIT license. See the LICENSE file for more info.
