@@ -27,10 +27,10 @@
 		CE53235B2244BF9E00D6C307 /* CBTabBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE53235A2244BF9D00D6C307 /* CBTabBarStyle.swift */; };
 		CE53235E2244C33A00D6C307 /* CBFadeTabButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE53235D2244C33A00D6C307 /* CBFadeTabButtonFactory.swift */; };
 		CE53236022454B2400D6C307 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE53235F22454B2400D6C307 /* Bundle.swift */; };
+		CE5323832245583300D6C307 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5323812245583300D6C307 /* LaunchScreen.storyboard */; };
 		CECEA1D821B6767100F15B7A /* CBTabBarController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CECEA1D121B6767100F15B7A /* CBTabBarController.framework */; };
 		CECEA1D921B6767100F15B7A /* CBTabBarController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CECEA1D121B6767100F15B7A /* CBTabBarController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CECEA1E821B676D000F15B7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEA1DF21B676D000F15B7A /* ViewController.swift */; };
-		CECEA1E921B676D000F15B7A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECEA1E021B676D000F15B7A /* LaunchScreen.xib */; };
 		CECEA1EA21B676D000F15B7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CECEA1E221B676D000F15B7A /* Main.storyboard */; };
 		CECEA1EB21B676D000F15B7A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECEA1E421B676D000F15B7A /* Images.xcassets */; };
 		CECEA1EC21B676D000F15B7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEA1E521B676D000F15B7A /* AppDelegate.swift */; };
@@ -90,11 +90,11 @@
 		CE53235A2244BF9D00D6C307 /* CBTabBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBTabBarStyle.swift; sourceTree = "<group>"; };
 		CE53235D2244C33A00D6C307 /* CBFadeTabButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBFadeTabButtonFactory.swift; sourceTree = "<group>"; };
 		CE53235F22454B2400D6C307 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		CE5323822245583300D6C307 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CECEA1A621B6758200F15B7A /* ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CECEA1D121B6767100F15B7A /* CBTabBarController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CBTabBarController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CECEA1D421B6767100F15B7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CECEA1DF21B676D000F15B7A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CECEA1E121B676D000F15B7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CECEA1E321B676D000F15B7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CECEA1E421B676D000F15B7A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CECEA1E521B676D000F15B7A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -239,7 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				CECEA1DF21B676D000F15B7A /* ViewController.swift */,
-				CECEA1E021B676D000F15B7A /* LaunchScreen.xib */,
+				CE5323812245583300D6C307 /* LaunchScreen.storyboard */,
 				CECEA1E221B676D000F15B7A /* Main.storyboard */,
 				CECEA1E421B676D000F15B7A /* Images.xcassets */,
 				CECEA1E521B676D000F15B7A /* AppDelegate.swift */,
@@ -388,8 +388,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE5323832245583300D6C307 /* LaunchScreen.storyboard in Resources */,
 				CECEA1EB21B676D000F15B7A /* Images.xcassets in Resources */,
-				CECEA1E921B676D000F15B7A /* LaunchScreen.xib in Resources */,
 				CECEA1EA21B676D000F15B7A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,12 +459,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CECEA1E021B676D000F15B7A /* LaunchScreen.xib */ = {
+		CE5323812245583300D6C307 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CECEA1E121B676D000F15B7A /* Base */,
+				CE5323822245583300D6C307 /* Base */,
 			);
-			name = LaunchScreen.xib;
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 		CECEA1E221B676D000F15B7A /* Main.storyboard */ = {

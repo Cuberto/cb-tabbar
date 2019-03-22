@@ -24,7 +24,7 @@ private class CBMenuListButton: UIButton {
     }
 }
 
-class CBMenuController: UIViewController {
+public class CBMenuController: UIViewController {
     
     @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var menuContainer: UIView!
@@ -39,12 +39,12 @@ class CBMenuController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         loadMenu()
     }
     
-    override func viewDidLayoutSubviews() {
+    override public func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         dismissButton.layer.cornerRadius = min(dismissButton.frame.height/2.0, dismissButton.frame.width/2.0)
     }
