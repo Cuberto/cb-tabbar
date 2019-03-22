@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'CBTabBarController'
-  s.version          = '0.9.1'
+  s.version          = '0.9.2'
   s.summary          = 'One another nice animated tabbar'
   s.homepage         = 'https://github.com/Cuberto/cb-tabbar'
   s.license          = 'MIT'
@@ -10,7 +10,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '10.0'
   s.swift_version = '4.2'
   s.source_files = 'CBTabBarController/Classes/**/*'
-  s.resource_bundles = {
-        'cb-tabbar' => ['CBTabBarController/Assets/**/*.{png,storyboard}']
-  }
+  s.resources =  'CBTabBarController/Assets/**/*.{png,storyboard}'
 end
