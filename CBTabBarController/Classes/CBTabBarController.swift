@@ -77,6 +77,7 @@ open class CBTabBarController: UITabBarController {
         }
         set {
             (tabBar as? CBTabBar)?.barHeight = newValue
+            self.setValue(tabBar, forKey: "tabBar")
         }
     }
 
@@ -89,5 +90,23 @@ open class CBTabBarController: UITabBarController {
             selectedIndex = idx
             delegate?.tabBarController?(self, didSelect: controller)
         }
+    }
+    
+    private func updateTabBarFrame() {
+        var tabFrame = tabBar.frame
+        if #available(iOS 11.0, *) {
+            tabFrame.size.height = barHeight + view.safeAreaInsets.bottom
+        } else {
+            tabFrame.size.height = barHeight
+        }
+        tabFrame.origin.y = self.view.frame.size.height - tabFrame.size.height
+        tabBar.frame = tabFrame
+        tabBar.setNeedsLayout()
+    }
+    
+    @available(iOS 11.0, *)
+    open override func viewSafeAreaInsetsDidChange() {
+        super.viewSafeAreaInsetsDidChange()
+        updateTabBarFrame()
     }
 }
