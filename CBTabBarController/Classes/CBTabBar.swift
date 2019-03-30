@@ -47,22 +47,6 @@ open class CBTabBar: UITabBar {
         }
     }
 
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        configure()
-    }
-
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        configure()
-    }
-
-    private func configure() {
-        backgroundColor = UIColor.white
-        isTranslucent = false
-        barTintColor = UIColor.white
-    }
-
     open override var items: [UITabBarItem]? {
         didSet {
             reloadViews()

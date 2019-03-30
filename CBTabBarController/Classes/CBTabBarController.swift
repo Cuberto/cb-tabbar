@@ -54,7 +54,9 @@ open class CBTabBarController: UITabBarController {
             return
         }
         let tabBar = CBTabBar()
-        tabBar.barTintColor = self.tabBar.barTintColor
+        if let barTint = self.tabBar.barTintColor {
+            tabBar.barTintColor = barTint
+        }
         self.setValue(tabBar, forKey: "tabBar")
     }
     
