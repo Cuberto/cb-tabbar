@@ -43,6 +43,7 @@ class CBSampleViewController: UIViewController {
         lblTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         lblTitle.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         view.setNeedsLayout()
+
     }
 
     func inverseColor() {

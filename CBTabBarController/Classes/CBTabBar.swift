@@ -46,6 +46,17 @@ open class CBTabBar: UITabBar {
             }
         }
     }
+    
+    var barHeight: CGFloat = 60
+    
+    override open func sizeThatFits(_ size: CGSize) -> CGSize {
+        var sizeThatFits = super.sizeThatFits(size)
+        sizeThatFits.height = barHeight
+        if #available(iOS 11.0, *) {
+            sizeThatFits.height = sizeThatFits.height + safeAreaInsets.bottom
+        }
+        return sizeThatFits
+    }
 
     open override var items: [UITabBarItem]? {
         didSet {
@@ -70,7 +81,7 @@ open class CBTabBar: UITabBar {
         let btnWidth = max(0, (bounds.width - predefinedWidth) / CGFloat(buttons.count - sizedButtons.count))
         let bottomOffset: CGFloat
         if #available(iOS 11.0, *) {
-            bottomOffset = safeAreaInsets.bottom/2.0
+            bottomOffset = safeAreaInsets.bottom
         } else {
             bottomOffset = 0
         }
@@ -143,5 +154,4 @@ open class CBTabBar: UITabBar {
         }
         selectedbutton.setSelected(true, animated: false)
     }
-
 }

@@ -61,57 +61,23 @@ open class CBTabBarController: UITabBarController {
     }
     
     private func updateTabBarStyle() {
-        switch style {
-        case .fade:
-            (self.tabBar as? CBTabBar)?.buttonFactory = CBFadeTabButtonFactory()
-        case .flashy:
-            (self.tabBar as? CBTabBar)?.buttonFactory = CBFlashyTabButtonFactory()
-        case let .gooey(menu):
-            let menuFactory = CBMenuTabButtonFactory(menu: menu)
-            menuFactory.presentationController = self
-            tabBar.layer.borderWidth = 0.0
-            tabBar.clipsToBounds = true
-            (self.tabBar as? CBTabBar)?.buttonFactory = menuFactory
+        guard let tabBar = tabBar as? CBTabBar else {
+            return
         }
+        style.configure(tabBar: tabBar, with: self)
     }
 
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
 
-    private var _barHeight: CGFloat = 74
     open var barHeight: CGFloat {
         get {
-            if #available(iOS 11.0, *) {
-                return _barHeight + view.safeAreaInsets.bottom
-            } else {
-                return _barHeight
-            }
+            return (tabBar as? CBTabBar)?.barHeight ?? tabBar.frame.height
         }
         set {
-            _barHeight = newValue
-            updateTabBarFrame()
+            (tabBar as? CBTabBar)?.barHeight = newValue
         }
-    }
-
-    private func updateTabBarFrame() {
-        var tabFrame = self.tabBar.frame
-        tabFrame.size.height = barHeight
-        tabFrame.origin.y = self.view.frame.size.height - barHeight
-        self.tabBar.frame = tabFrame
-        tabBar.setNeedsLayout()
-    }
-
-    open override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        updateTabBarFrame()
-    }
-
-    open override func viewSafeAreaInsetsDidChange() {
-        if #available(iOS 11.0, *) {
-            super.viewSafeAreaInsetsDidChange()
-        }
-        updateTabBarFrame()
     }
 
     open override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
@@ -124,5 +90,4 @@ open class CBTabBarController: UITabBarController {
             delegate?.tabBarController?(self, didSelect: controller)
         }
     }
-
 }

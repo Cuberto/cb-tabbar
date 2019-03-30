@@ -52,3 +52,21 @@ public enum CBTabBarStyle {
     case fade
     case gooey(menu: CBTabMenu)
 }
+
+
+internal extension CBTabBarStyle {
+    func configure(tabBar: CBTabBar, with controller: CBTabBarController) {
+        switch self {
+        case let .gooey(menu):
+            let menuFactory = CBMenuTabButtonFactory(menu: menu)
+            menuFactory.presentationController = controller
+            tabBar.layer.borderWidth = 0.0
+            tabBar.clipsToBounds = true
+            tabBar.buttonFactory = menuFactory
+        case .fade:
+            tabBar.buttonFactory = CBFadeTabButtonFactory()
+        case .flashy:
+            tabBar.buttonFactory = CBFlashyTabButtonFactory()
+        }
+    }
+}
