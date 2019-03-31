@@ -40,6 +40,12 @@ class ViewController: UIViewController {
         let settingsVC = CBSampleViewController()
         settingsVC.tabBarItem = SampleTabItem(title: "Settings", image: #imageLiteral(resourceName: "Settings"), tag: 0)
         settingsVC.tabBarItem?.badgeColor = .red
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            settingsVC.tabBarItem?.badgeValue = "20"
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            settingsVC.tabBarItem?.badgeValue = "200"
+        }
         settingsVC.tabBarItem?.badgeValue = "1"
         settingsVC.inverseColor()
         
