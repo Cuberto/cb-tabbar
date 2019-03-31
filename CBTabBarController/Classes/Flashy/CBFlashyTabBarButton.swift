@@ -38,29 +38,45 @@ class CBFlashyTabBarButton: CBTabBarButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureSubviews()
+        addObservers()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         configureSubviews()
+        addObservers()
     }
 
     required init(item: UITabBarItem) {
         super.init(frame: .zero)
+        addObservers()
         configureSubviews()
-        defer {
-            self.item = item
+        self.item = item
+    }
+    
+    deinit {
+        removeObserver(self, forKeyPath: #keyPath(_item.badgeValue))
+        removeObserver(self, forKeyPath: #keyPath(_item.badgeColor))
+    }
+    
+    private func addObservers() {
+        addObserver(self, forKeyPath: #keyPath(_item.badgeValue), options: [.initial, .new], context: nil)
+        addObserver(self, forKeyPath: #keyPath(_item.badgeColor), options: [.initial, .new], context: nil)
+    }
+    
+    var item: UITabBarItem? {
+        set {
+            guard let item = newValue else { return }
+            _item = item
+        }
+        get {
+            return _item
         }
     }
-
-    var item: UITabBarItem? {
+    
+    @objc dynamic var _item: UITabBarItem = UITabBarItem(){
         didSet {
-            tabImage.image = item?.image?.withRenderingMode(.alwaysTemplate)
-            tabLabel.attributedText = (item as? CBExtendedTabItem)?.attributedTitle ?? attributedText(fortitle: item?.title)
-            badgeContainer.backgroundColor = item?.badgeColor ?? tintColor
-            badgeLabel.text = item?.badgeValue
-            badgeContainer.isHidden = item?.badgeValue == nil
-            setNeedsLayout()
+            didUpdateItem()
         }
     }
 
@@ -175,5 +191,22 @@ class CBFlashyTabBarButton: CBTabBarButton {
             }
         }
     }
+    
+    private func didUpdateItem() {
+        tabImage.image = item?.image?.withRenderingMode(.alwaysTemplate)
+        tabLabel.attributedText = (item as? CBExtendedTabItem)?.attributedTitle ?? attributedText(fortitle: item?.title)
+        badgeContainer.backgroundColor = item?.badgeColor ?? tintColor
+        badgeLabel.text = item?.badgeValue
+        badgeContainer.isHidden = item?.badgeValue == nil
+        setNeedsLayout()
+    }
 
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        switch keyPath {
+        case #keyPath(_item.badgeValue), #keyPath(_item.badgeColor):
+            didUpdateItem()
+        default:
+            break
+        }
+    }
 }

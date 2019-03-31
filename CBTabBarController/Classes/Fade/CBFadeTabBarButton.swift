@@ -75,5 +75,6 @@ class CBFadeTabBarButton: CBBaseTabButton {
     override func didUpdateItem() {
         super.didUpdateItem()
         setImage(item?.image?.withRenderingMode(.alwaysTemplate), for: .normal)
+        setNeedsLayout()
     }
 }
