@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'CBTabBarController'
-  s.version          = '0.9.4'
+  s.version          = '0.9.5'
   s.summary          = 'One another nice animated tabbar'
   s.homepage         = 'https://github.com/Cuberto/cb-tabbar'
   s.license          = 'MIT'

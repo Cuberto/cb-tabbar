@@ -18,6 +18,8 @@ class CBFlashyTabBarButton: CBTabBarButton {
     
     var selectAnimation: CBTabItemAnimation?
     var deselectAnimation: CBTabItemAnimation?
+    var config: CBFlashyTabBarConfig?
+
     private var _isSelected: Bool = false
     override var isSelected: Bool {
         get {
@@ -82,7 +84,7 @@ class CBFlashyTabBarButton: CBTabBarButton {
 
     override var tintColor: UIColor! {
         didSet {
-            tabImage.tintColor = tintColor.withAlphaComponent(0.4)
+            tabImage.tintColor = tintColor.withAlphaComponent(config?.deselectedOpacity ?? 0.4)
             tabLabel.attributedText = (item as? CBExtendedTabItem)?.attributedTitle ?? attributedText(fortitle: item?.title)
             dotView.backgroundColor = tintColor
             badgeContainer.backgroundColor = item?.badgeColor ?? tintColor

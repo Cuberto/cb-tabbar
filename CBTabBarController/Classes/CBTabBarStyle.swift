@@ -48,7 +48,7 @@ public struct CBTabMenu {
 }
 
 public enum CBTabBarStyle {
-    case flashy
+    case flashy(config: CBFlashyTabBarConfig?)
     case fade
     case gooey(menu: CBTabMenu)
 }
@@ -65,8 +65,8 @@ internal extension CBTabBarStyle {
             tabBar.buttonFactory = menuFactory
         case .fade:
             tabBar.buttonFactory = CBFadeTabButtonFactory()
-        case .flashy:
-            tabBar.buttonFactory = CBFlashyTabButtonFactory()
+        case let .flashy(config):
+            tabBar.buttonFactory = CBFlashyTabButtonFactory(config: config)
         }
     }
 }

@@ -56,7 +56,7 @@ class ViewController: UIViewController {
     
     @IBAction func btnFlashyPressed(_ sender: AnyObject) {
         let tabBarController = createSampleTabController()
-        tabBarController.style = .flashy
+        tabBarController.style = .flashy(config: nil)
         self.navigationController?.pushViewController(tabBarController, animated: true)
     }
     
