@@ -64,6 +64,7 @@ class CBMenuPresenter: NSObject {
         let storyboard = UIStoryboard(name: "CBMenuController", bundle: Bundle.resourseBundle)
         let controller = storyboard.instantiateInitialViewController() as? CBMenuController
         controller?.menu = menu
+        controller?.modalPresentationStyle = .fullScreen
         return controller
     }
     
