@@ -15,6 +15,7 @@ protocol CBTabBarButtonProtocol {
     var item: UITabBarItem? { get set }
     func setSelected(_ selected: Bool, animated: Bool)
     var requiredSize: CGSize? { get }
+    var unselectedTintColor: UIColor? { get set }
 }
 
 

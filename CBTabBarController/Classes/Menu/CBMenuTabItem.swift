@@ -9,7 +9,6 @@
 import UIKit
 
 class CBMenuTabItem: UITabBarItem, CBExtendedTabItem {
-    
     var attributedTitle: NSAttributedString? {
         return nil
     }

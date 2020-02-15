@@ -15,7 +15,6 @@ extension String: CBTabMenuItem {
 }
 
 class SampleTabItem: UITabBarItem, CBExtendedTabItem {
-
     public var attributedTitle: NSAttributedString? {
         guard let title = title else { return nil }
         return NSAttributedString(string: title, attributes: [NSAttributedString.Key.foregroundColor: UIColor.red,
@@ -50,7 +49,10 @@ class ViewController: UIViewController {
         settingsVC.inverseColor()
         
         let tabBarController = CBTabBarController()
+        tabBarController.tabBar.unselectedItemTintColor = .brown
+        tabBarController.tabBar.tintColor = .red
         tabBarController.viewControllers = [eventsVC, searchVC, activityVC, settingsVC]
+        
         return tabBarController
     }
     

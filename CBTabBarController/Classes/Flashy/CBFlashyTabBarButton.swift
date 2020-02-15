@@ -9,7 +9,8 @@
 import UIKit
 
 class CBFlashyTabBarButton: CBTabBarButton {
-
+    var unselectedTintColor: UIColor?
+    
     var tabImage = UIImageView()
     var tabLabel = UILabel()
     var badgeContainer = UIView()
@@ -200,7 +201,7 @@ class CBFlashyTabBarButton: CBTabBarButton {
         badgeContainer.backgroundColor = item?.badgeColor ?? tintColor
         badgeLabel.text = item?.badgeValue
         badgeContainer.isHidden = item?.badgeValue == nil
-        setNeedsLayout()
+        layoutIfNeeded()
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {

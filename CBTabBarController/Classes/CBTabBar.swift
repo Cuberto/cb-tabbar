@@ -47,6 +47,17 @@ open class CBTabBar: UITabBar {
         }
     }
     
+    open override var unselectedItemTintColor: UIColor? {
+        didSet {
+            
+            buttons.forEach { button in
+                if let baseButton = button as? CBBaseTabButton {
+                    baseButton.unselectedTintColor = unselectedItemTintColor
+                }
+            }
+        }
+    }
+    
     var barHeight: CGFloat = 60
     
     override open func sizeThatFits(_ size: CGSize) -> CGSize {
@@ -107,18 +118,25 @@ open class CBTabBar: UITabBar {
         subviews.filter { String(describing: type(of: $0)) == "UITabBarButton" }.forEach { $0.removeFromSuperview() }
         buttons.forEach { $0.removeFromSuperview()}
         buttons = buttonFactory?.buttons(forItems: items ?? []) ?? []
-        buttons.forEach { button in
+        
+        for (index, button) in buttons.enumerated() {
             if let item = button.item as? CBExtendedTabItem {
-                button.tintColor = item.tintColor ?? tintColor
+                if button.isKind(of: CBMenuButton.self) {
+                    button.tintColor = item.tintColor
+                } else {
+                    button.tintColor = unselectedItemTintColor
+                }
             } else {
-                button.tintColor = tintColor
+                button.tintColor = unselectedItemTintColor ?? tintColor
             }
+            
             if selectedItem != nil && button.item === selectedItem {
-                button.setSelected(true, animated: false)
+                select(itemAt: index, animated: true)
             }
             button.addTarget(self, action: #selector(btnPressed), for: .touchUpInside)
             addSubview(button)
         }
+ 
         setNeedsLayout()
     }
 
@@ -127,17 +145,16 @@ open class CBTabBar: UITabBar {
             return
         }
         
-        buttons.forEach { (button) in
-            guard button !== sender else {
-                return
+        for (index, button) in buttons.enumerated() {
+            if button == sender {
+                select(itemAt: index, animated: true)
+                
+                if let item = sender.item,
+                   let items = items,
+                   items.contains(item) {
+                    delegate?.tabBar?(self, didSelect: item)
+                }
             }
-            button.setSelected(false, animated: true)
-        }
-        sender.setSelected(true, animated: true)
-        if let item = sender.item,
-           let items = items,
-           items.contains(item) {
-            delegate?.tabBar?(self, didSelect: item)
         }
     }
 
@@ -146,12 +163,19 @@ open class CBTabBar: UITabBar {
             return
         }
         let selectedbutton = buttons[index]
+        
         buttons.forEach { (button) in
-            guard button !== selectedbutton else {
-                return
+            if !button.isKind(of: CBMenuButton.self) {
+                if button == selectedbutton {
+                    selectedbutton.tintColor = self.tintColor
+                    selectedbutton.setSelected(true, animated: animated)
+                } else {
+                    button.tintColor = self.unselectedItemTintColor
+                    button.setSelected(false, animated: animated)
+                }
             }
-            button.setSelected(false, animated: false)
+
         }
-        selectedbutton.setSelected(true, animated: false)
+        
     }
 }

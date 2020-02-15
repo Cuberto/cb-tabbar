@@ -9,6 +9,7 @@
 import UIKit
 
 class CBBaseTabButton: UIButton, CBTabBarButtonProtocol  {
+    var unselectedTintColor: UIColor?
     
     var badgeContainer = UIView()
     var badgeLabel = UILabel()
@@ -119,9 +120,11 @@ class CBBaseTabButton: UIButton, CBTabBarButtonProtocol  {
     }
     
     func select(animated: Bool = true) {
+  
     }
     
     func deselect(animated: Bool = true) {
+      
     }
     
     func didUpdateItem() {
