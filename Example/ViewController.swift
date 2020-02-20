@@ -35,8 +35,11 @@ class ViewController: UIViewController {
         let searchVC = CBSampleViewController()
         searchVC.tabBarItem = UITabBarItem(title: "Search", image: #imageLiteral(resourceName: "Search"), tag: 0)
         let activityVC = CBSampleViewController()
-        activityVC.tabBarItem = UITabBarItem(title: "Activity", image: #imageLiteral(resourceName: "Highlights"), tag: 0)
+        
+        let activityNVC = UINavigationController(rootViewController: activityVC)
+        activityNVC.tabBarItem = UITabBarItem(title: "Activity", image: #imageLiteral(resourceName: "Highlights"), tag: 0)
         let settingsVC = CBSampleViewController()
+        
         settingsVC.tabBarItem = SampleTabItem(title: "Settings", image: #imageLiteral(resourceName: "Settings"), tag: 0)
         settingsVC.tabBarItem?.badgeColor = .red
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -51,7 +54,7 @@ class ViewController: UIViewController {
         let tabBarController = CBTabBarController()
         tabBarController.tabBar.unselectedItemTintColor = .brown
         tabBarController.tabBar.tintColor = .red
-        tabBarController.viewControllers = [eventsVC, searchVC, activityVC, settingsVC]
+        tabBarController.viewControllers = [eventsVC, searchVC, activityNVC, settingsVC]
         
         return tabBarController
     }

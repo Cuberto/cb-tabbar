@@ -131,7 +131,8 @@ class CBBaseTabButton: UIButton, CBTabBarButtonProtocol  {
         badgeContainer.backgroundColor = item?.badgeColor ?? tintColor
         badgeLabel.text = item?.badgeValue
         badgeContainer.isHidden = item?.badgeValue == nil
-        setNeedsLayout()
+        titleLabel?.text = item?.title
+        layoutIfNeeded()
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
